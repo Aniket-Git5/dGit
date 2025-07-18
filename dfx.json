@@ -1,0 +1,42 @@
+{
+  "canisters": {
+    "dgit_backend": {
+      "type": "motoko",
+      "main": "src/dgit_backend/main.mo",
+      "declarations": {
+        "output": "src/declarations/dgit_backend"
+      }
+    },
+    "dgit_frontend": {
+      "dependencies": [
+        "dgit_backend",
+        "internet_identity"
+      ],
+      "frontend": {
+        "entrypoint": "src/dgit_frontend/index.html"
+      },
+      "source": [
+        "src/dgit_frontend/assets",
+        "src/dgit_frontend/dist"
+      ],
+      "type": "assets"
+    },
+    "internet_identity": {
+      "type": "pull",
+      "id": "rdmx6-jaaaa-aaaaa-aaadq-cai"
+    }
+  },
+  "defaults": {
+    "build": {
+      "packtool": ""
+    }
+  },
+  "dfx": "0.27.0",
+  "networks": {
+    "local": {
+      "bind": "127.0.0.1:8000",
+      "type": "ephemeral"
+    }
+  },
+  "version": 1
+}
